@@ -1,0 +1,2 @@
+Attempting to connect to D2:63:49:42:C4:2F
+Failed to connect: org.bluez.Error.NotReady br-connection-adapter-not-powered

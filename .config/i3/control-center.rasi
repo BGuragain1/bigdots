@@ -1,0 +1,110 @@
+/**
+ * i3 Control Center Rofi Theme
+ * Designed for a clean, modern, and responsive interface
+ */
+
+* {
+    /* Color Palette */
+    background:     #282C34;       /* Dark background */
+    background-alt: #3A3F4B;       /* Slightly lighter background */
+    foreground:     #ABB2BF;        /* Light text */
+    selected:       #61AFEF;        /* Highlight color */
+    active:         #98C379;        /* Green for active states */
+    urgent:         #E06C75;        /* Red for urgent states */
+
+    /* Font Settings */
+    text-font:      "JetBrains Mono Nerd Font 10";
+    icon-font:      "JetBrains Mono Nerd Font 14";
+
+    /* Theme Settings */
+    border-radius:  8px;
+    spacing:        8px;
+    padding:        12px;
+}
+
+/* Main Window Configuration */
+window {
+    transparency:       "real";
+    background-color:   @background;
+    text-color:         @foreground;
+    border-radius:      @border-radius;
+    width:              400px;
+    height:             500px;
+    location:           center;
+    anchor:             center;
+}
+
+/* Listview Configuration */
+listview {
+    background-color:   transparent;
+    columns:            1;
+    lines:              8;
+    spacing:            4px;
+    dynamic:            true;
+    scrollbar:          false;
+}
+
+/* Mainbox Configuration */
+mainbox {
+    background-color:   transparent;
+    spacing:            0;
+    children:           [ inputbar, listview ];
+}
+
+/* Inputbar Configuration */
+inputbar {
+    background-color:   @background-alt;
+    text-color:         @foreground;
+    padding:            @padding;
+    border-radius:      @border-radius;
+    children:           [ prompt ];
+}
+
+/* Prompt Configuration */
+prompt {
+    background-color:   inherit;
+    text-color:         @selected;
+    font:               @text-font;
+}
+
+/* Element Configuration */
+element {
+    background-color:   transparent;
+    text-color:         @foreground;
+    orientation:        horizontal;
+    border-radius:      @border-radius;
+    padding:            8px;
+}
+
+element normal.normal {
+    background-color:   transparent;
+    text-color:         @foreground;
+}
+
+element selected.normal {
+    background-color:   @selected;
+    text-color:         @background;
+}
+
+element-text {
+    background-color:   transparent;
+    text-color:         inherit;
+    font:               @text-font;
+    expand:             true;
+    vertical-align:     0.5;
+}
+
+element-icon {
+    background-color:   transparent;
+    text-color:         inherit;
+    size:               24px;
+    margin:             0 10px 0 0;
+}
+
+/* Error Message Configuration */
+error-message {
+    background-color:   @urgent;
+    text-color:         @foreground;
+    padding:            @padding;
+    border-radius:      @border-radius;
+}
