@@ -45,7 +45,6 @@ return {
                                     for i, option in ipairs(options) do
                                         if option == choice then
                                             index = i
-                                            break
                                         end
                                     end
 

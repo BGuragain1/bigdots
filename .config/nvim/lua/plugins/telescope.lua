@@ -10,7 +10,7 @@ return {
             telescope.setup({
                 defaults = {
                     mappings = {
-                        i={
+                        i = {
                             ["<C-s>"] = actions.select_vertical,
                         },
                     },
@@ -23,11 +23,9 @@ return {
                 },
             })
             local builtin = require("telescope.builtin")
-            vim.keymap.set("n", "<leader><leader>", function()
-                builtin.find_files({
-                    find_command = { "rg", "--files", "--hidden", "--glob", "!.git/*" },
-                })
-            end, {})
+            vim.keymap.set('n', '<leader><leader>', function()
+                require('telescope.builtin').find_files({ hidden = true })
+            end, { desc = "Find files (including hidden)" })
             vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
             vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
             vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})

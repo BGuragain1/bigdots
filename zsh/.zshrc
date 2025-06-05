@@ -63,6 +63,7 @@ alias ug="sudo apt upgrade"
 
 alias wifi='nmtui'
 alias act='source env/bin/activate'
+alias dct='deactivate'
 alias ls='ls -h --color=auto --group-directories-first'
 alias la='ls -A'
 alias ll='ls -A1l'
@@ -84,3 +85,15 @@ export STARSHIP_CONFIG=~/dotfiles/.config/starship/starship.toml
 
 eval "$(zoxide init zsh)"
 eval "$(atuin init zsh)"
+
+# activate env environment and get inside neovim
+function start(){
+    source env/bin/activate && nvim .
+}
+alias start="start()"
+
+#get inside bigdots 
+alias inside="cd bigdots && nvim ."
+alias go="cd && cd bigdots && nvim ."
+
+
