@@ -245,3 +245,14 @@ bindsym $mod+Shift+b exec --no-startup-id blueman-manager
 #for wifi manager
 
 bindsym $mod+Shift+w exec nm-connection-editor
+
+#####################
+# Window Management
+#####################
+
+# Floating windows for dialogs
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+
+# Floating window drag with Mouse + $mod
+floating_modifier $mod
