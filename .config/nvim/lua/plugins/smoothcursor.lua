@@ -1,5 +1,4 @@
-return { 'gen740/SmoothCursor.nvim',
-  config = function()
-    require('smoothcursor').setup()
-  end
+return {
+	"sphamba/smear-cursor.nvim",
+	opts = {},
 }

@@ -82,7 +82,6 @@ alias gp="git push"
 # Initializations
 eval "$(starship init zsh)"
 export STARSHIP_CONFIG=~/dotfiles/.config/starship/starship.toml
-
 eval "$(zoxide init zsh)"
 eval "$(atuin init zsh)"
 
