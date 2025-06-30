@@ -233,12 +233,6 @@ exec_always --no-startup-id killall picom; picom --experimental-backends --backe
 # Lock screen when lid closed or after inactivity
 exec_always --no-startup-id xss-lock --transfer-sleep-lock -- ~/.config/i3/lock.sh
 
-# Screenshot full screen
-#bindsym Print exec scrot ~/Pictures/screenshot_%Y-%m-%d-%H%M%S.png
-
-# Screenshot a selected area
-#bindsym Shift+Print exec scrot -s ~/Pictures/screenshot_%Y-%m-%d-%H%M%S.png
-
 ####################
 # Screenshot Control 
 ####################
