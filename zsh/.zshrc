@@ -62,8 +62,8 @@ alias up="sudo apt update"
 alias ug="sudo apt upgrade"
 
 alias wifi='nmtui'
-alias act='source env/bin/activate'
-alias dct='deactivate'
+alias act='source .venv/bin/activate'
+alias dc='deactivate'
 alias ls='ls -h --color=auto --group-directories-first'
 alias la='ls -A'
 alias ll='ls -A1l'
