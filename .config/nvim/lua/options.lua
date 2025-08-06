@@ -4,7 +4,7 @@ vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.opt.mouse = "a"
 vim.opt.scrolloff = 10
 vim.g.netrw_browse_split = 0
-
+vim.o.winborder = "rounded"
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4

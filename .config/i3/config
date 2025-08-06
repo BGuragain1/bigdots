@@ -262,5 +262,3 @@ for_window [window_role="task_dialog"] floating enable
 # Floating window drag with Mouse + $mod
 floating_modifier $mod
 
-#for headphones
-bindsym $mod+Shift+h exec --no-startup-id /home/bigyan1/bigdots/.config/i3/audio/switch_to_headphone.sh

@@ -56,7 +56,6 @@ alias python=python3
 alias ..="cd ../"
 alias ...="cd ../../"
 
-alias dotrefresh="source ~/.zshrc"
 alias kit="vim ~/.config/kitty/kitty.conf"
 alias up="sudo apt update"
 alias ug="sudo apt upgrade"
@@ -95,6 +94,8 @@ alias start="start()"
 alias inside="cd bigdots && nvim ."
 alias go="cd && cd bigdots && nvim ."
 
+alias audio="pactl list short sinks"
+alias switch="pactl set-default-sink" 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"

@@ -1,20 +1,18 @@
 return {
 	{
-		"vhyrro/luarocks.nvim",
-		priority = 1001,
+		"folke/snacks.nvim",
 		opts = {
-			rocks = { "magick" },
+			image = {
+				enabled = true,
+				backend = "kitty", -- use Kitty terminal's image backend
+				max_width = nil, -- fill the terminal width
+				max_height = nil, -- fill the terminal height
+				opacity = 100, -- fully opaque
+				border = "rounded", -- nice rounded border
+				position = "center", -- center the image in the terminal
+				horizontal_padding = 2, -- padding for aesthetics
+				vertical_padding = 1,
+			},
 		},
-	},
-	{
-		"3rd/image.nvim",
-		dependencies = { "luarocks.nvim" },
-		config = function()
-			require("image").setup({
-				backend = "kitty",
-				max_height_window_percentage = 50,
-				hijack_file_patterns = { "*.png", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.svg" },
-			})
-		end,
 	},
 }
