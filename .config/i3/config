@@ -233,19 +233,27 @@ exec_always --no-startup-id killall picom; picom --experimental-backends --backe
 # Lock screen when lid closed or after inactivity
 exec_always --no-startup-id xss-lock --transfer-sleep-lock -- ~/.config/i3/lock.sh
 
-####################
-# Screenshot Control 
-####################
+# ======================
+# Screenshots (with scrot + xclip)
+# ======================
 
-## Screenshots in files (scrot)
-bindsym Print exec --no-startup-id scrot "/home/$USER/Pictures/Screenshots/screenshot-$(date -u +'%Y%m%d-%H%M%SZ')-all.png"
-bindsym $mod+Print exec --no-startup-id scrot -u "/home/$USER/Pictures/Screenshots/screenshot-$(date -u +'%Y%m%d-%H%M%SZ')-current.png"
-bindsym Shift+Print exec --no-startup-id scrot -s "/home/$USER/Pictures/Screenshots/screenshot-$(date -u +'%Y%m%d-%H%M%SZ')-selected.png"
+# Save full screen
+bindsym Print exec --no-startup-id scrot ~/Pictures/Screenshots/screenshot-%Y%m%d-%H%M%S.png
 
-## Screenshots in clipboards (scrot)
-bindsym Ctrl+Print exec --no-startup-id scrot -z -o -e 'xclip -selection clipboard -t image/png -i $f'
-bindsym Ctrl+$mod+Print exec --no-startup-id scrot -u -z -o -e 'xclip -selection clipboard -t image/png -i $f'
-bindsym Ctrl+Shift+Print exec --no-startup-id scrot -s -z -o -e 'xclip -selection clipboard -t image/png -i $f'
+# Save focused window
+bindsym $mod+Print exec --no-startup-id scrot -u ~/Pictures/Screenshots/screenshot-%Y%m%d-%H%M%S.png
+
+# Save selected area
+bindsym Shift+Print exec --no-startup-id scrot -s ~/Pictures/Screenshots/screenshot-%Y%m%d-%H%M%S.png
+
+# Full screen to clipboard
+bindsym Ctrl+Print exec --no-startup-id sh -c 'scrot /tmp/screenshot.png && xclip -selection clipboard -t image/png -i /tmp/screenshot.png && rm /tmp/screenshot.png'
+
+# Active window to clipboard
+bindsym Ctrl+$mod+Print exec --no-startup-id sh -c 'scrot -u /tmp/screenshot.png && xclip -selection clipboard -t image/png -i /tmp/screenshot.png && rm /tmp/screenshot.png'
+
+# Selection to clipboard
+bindsym Ctrl+Shift+Print exec --no-startup-id sh -c 'scrot -s /tmp/screenshot.png && xclip -selection clipboard -t image/png -i /tmp/screenshot.png && rm /tmp/screenshot.png'
 
 #for wifi manager
 

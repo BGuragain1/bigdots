@@ -99,3 +99,44 @@ alias switch="pactl set-default-sink"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
+
+# ==============================
+# Auto venv activate/deactivate
+# ==============================
+
+# Track current venv
+export AUTO_VENV_ACTIVE=""
+
+function auto_venv_switch() {
+    # Look for venv folder names (customize if needed)
+    for venv_dir in ".venv" "venv" "env"; do
+        if [[ -d "$PWD/$venv_dir" ]]; then
+            # If not already active, activate it
+            if [[ "$AUTO_VENV_ACTIVE" != "$PWD/$venv_dir" ]]; then
+                # deactivate existing venv if active
+                if [[ -n "$VIRTUAL_ENV" ]]; then
+                    deactivate >/dev/null 2>&1
+                fi
+                source "$PWD/$venv_dir/bin/activate"
+                export AUTO_VENV_ACTIVE="$PWD/$venv_dir"
+                echo "Activated virtualenv: $AUTO_VENV_ACTIVE"
+            fi
+            return
+        fi
+    done
+
+    # If no venv found here but one was active, deactivate it
+    if [[ -n "$VIRTUAL_ENV" ]]; then
+        deactivate >/dev/null 2>&1
+        echo "Deactivated virtualenv"
+        export AUTO_VENV_ACTIVE=""
+    fi
+}
+
+# Hook into directory change
+autoload -U add-zsh-hook
+add-zsh-hook chpwd auto_venv_switch
+
+# Run once for initial directory
+auto_venv_switch

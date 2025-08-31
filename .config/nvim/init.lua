@@ -16,6 +16,7 @@ if vim.g.vscode then
 	require("cmp").setup({ enabled = false })
 end
 vim.opt.rtp:prepend(lazypath)
+vim.opt.clipboard = "unnamedplus"
 require("lazy").setup("plugins")
 require("config.lsp")
 require("keymaps")
